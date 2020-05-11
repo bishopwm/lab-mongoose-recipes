@@ -31,6 +31,12 @@ mongoose
     Recipe.insertMany(data);
     data.forEach( recipe => console.log(recipe.title) )
   })
+  .then(()=> {
+   // Iteration 4: Find a recipe and update it
+   console.log("Recipe updated!");
+    return Recipe.findOneAndUpdate({ title: 'Rigatoni alla Genovese'}, { duration: 100 });
+    
+  })
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
